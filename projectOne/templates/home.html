@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="my-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1>Welcome to Animalia</h1>
+        <div>
+            <a href="{% url 'create-animals' %}" class="btn btn-primary">Add Animals</a>
+        </div>
+    </div>
+
+    {% if animals %}
+    <h3>Animals</h3>
+    {% for animal in animals %}
+    <div class="card mb-3 p-3">
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <h4>{{ animal.name }}</h4>
+                <p class="mb-1">{{ animal.description }}</p>
+                <div class="badge bg-dark">ksh. {{ animal.age }}</div>
+            </div>
+            <div>
+                <a href="{% url 'animals-detail' animal.pk %}" class="btn btn-sm btn-info">View</a>
+                <a href="{% url 'update-animals' animal.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'delete-animals' animal.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+     {% if not animals %}
+    <p>No items yet. Use the buttons above to add products.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+

@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from .models import Animal
+from .models import Animals
 
 class AnimalForm(ModelForm):
     class Meta:
-        model = Animal
+        model = Animals
         fields = '__all__'
