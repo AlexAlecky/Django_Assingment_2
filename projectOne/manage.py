@@ -3,8 +3,6 @@
 import os
 import sys
 
-# Add projectOne folder to path so Django can find the apps
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'projectOne'))
 
 def main():
     """Run administrative tasks."""
